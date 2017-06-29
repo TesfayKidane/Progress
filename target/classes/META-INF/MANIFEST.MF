@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Implementation-Title: HelloSpringThymeBoot
+Implementation-Title: CEShopProgress
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: Tesfay
 Implementation-Vendor-Id: edu.mum

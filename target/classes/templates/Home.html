@@ -1,0 +1,51 @@
+ 
+<!DOCTYPE HTML>
+ 
+ <html xmlns:th="http://www.thymeleaf.org">
+ 
+<head>
+<title>CE Shop Progress</title>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script>
+
+$(document).ready(function (){
+	$("#next").click(function (){
+		getProgress();
+    });
+	
+	function getProgress(){ 
+	  $.ajax({
+		  url:"./progress",
+		  type:"POST",
+		  dataType:"json",
+		  data:{
+			  userId: "11",
+			  testId: "133"
+			},
+		  succee:function(resultData){
+			   $("#progress").html("");
+			   var output="";
+			   if(resultData.length===0){
+				   $("#progress").html("<em>No progress found!</em>");
+			   }
+			   else{
+					   $("#progress").html(resultData);
+				    }
+		  },
+		  error:function(){
+			   $("#progess").html("Error");  
+		  }, 
+	  });
+  } 
+  });
+</script>
+ </head>
+<body>
+ <h3><span th:text="${home}"></span></h3>
+ <button id="next">Next</button>
+ <h3 id="progress"></h3>
+ </body>
+</html>
